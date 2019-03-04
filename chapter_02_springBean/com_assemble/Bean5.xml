@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--1.使用构造注入方式装配User实例-->
+    <bean id="user1" class="chapter_02_springBean.com_assemble.User">
+        <constructor-arg index="0" value="付晓阳" />
+        <constructor-arg index="1" value="1234" />
+        <constructor-arg index="2">
+            <list>
+                <value>"constructor1"</value>
+                <value>"constructor2"</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <!--2.使用设值注入方式装配User实例-->
+    <bean id="user2" class="chapter_02_springBean.com_assemble.User">
+        <property name="username" value="佳慧"></property>
+        <property name="password" value="5678"></property>
+        <!--注入list集合-->
+        <property name="list">
+            <list>
+                <value>"setListvaluel"</value>
+                <value>"setlistvalue2"</value>
+            </list>
+        </property>
+
+    </bean>
+
+
+    <!--构造方法注入-->
+    <bean id="car1" class="chapter_02_springBean.com_assemble.Car">
+        <constructor-arg index="0" value="宝马" />
+        <constructor-arg index="1" value="黑色" />
+        <constructor-arg index="2" value="90" />
+        <constructor-arg index="3">
+            <list>
+                <value>开封</value>
+                <value>洛阳</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <!--设置值注入-->
+    <bean id="car2" class="chapter_02_springBean.com_assemble.Car">
+        <property name="model" value="奥迪"></property>
+        <property name="color" value="黑色"></property>
+        <property name="price" value="90"></property>
+        <property name="list">
+            <list>
+                <value>新乡</value>
+                <value>郑州</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="student2" class="chapter_02_springBean.com_assemble.Student">
+        <constructor-arg index="0" value="ljh" />
+        <constructor-arg index="1">
+            <list>
+                <value>数学</value>
+                <value>英语</value>
+                <value>物理</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg index="2">
+            <map>
+                <entry key="Map集合的学校">
+                    <value>学校与专业</value>
+                </entry>
+                <entry key="山东大学">
+                    <value>增材</value>
+                </entry>
+                <entry key="中国政法">
+                    <value>法学</value>
+                </entry>
+            </map>
+        </constructor-arg>
+
+    </bean>
+    <context:annotation-config />
+
+    <bean id="student1" class="chapter_02_springBean.com_assemble.Student">
+        <property name="name" value="fxy"></property>
+        <property name="timetable">
+            <list>
+                <value>List集合的课表</value>
+                <value>JavaEE企业应用开发</value>
+                <value>Java</value>
+                <value>C++</value>
+            </list>
+        </property>
+        <property name="school">
+            <map>
+                <entry key="Map集合">
+                    <value>学校与专业</value>
+                </entry>
+                <entry key="南京信息工程大学">
+                    <value>软件技术</value>
+                </entry>
+                <entry key="常州大学">
+                    <value>软件工程(嵌入式)</value>
+                </entry>
+                <entry key="南京理工大学">
+                    <value>计算机科学与技术</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="phone1" class="chapter_02_springBean.com_assemble.Phone">
+       <!--属性注入-->
+        <property name="brand" >
+            <value>华为</value>
+        </property>
+        <property name="color">
+            <value>黑色</value>
+        </property>
+        <property name="memory">
+            <value>256</value>
+        </property>
+    </bean>
+    <bean id="phone2" class="chapter_02_springBean.com_assemble.Phone">
+        <property name="brand" value="小米"></property>
+        <property name="color" value="蓝色"></property>
+        <property name="memory" value="128"></property>
+    </bean>
+    <!--构造注入-->
+    <bean id="phone3" class="chapter_02_springBean.com_assemble.Phone">
+        <constructor-arg index="0" value="vivo" />
+        <constructor-arg index="1" value="金色" />
+        <constructor-arg index="2" value="128" />
+    </bean>
+    <bean id="stuPhone1" class="chapter_02_springBean.com_assemble.StuPhone"></bean>
+    <bean id="stuPhone2" class="chapter_02_springBean.com_assemble.StuPhone"></bean>
+    <bean id="stuPhone3" class="chapter_02_springBean.com_assemble.StuPhone"></bean>
+</beans>
