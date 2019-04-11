@@ -1,6 +1,6 @@
-# JavaE
+# JavaEE
 🏆🏆
-#MyBatis的核心配置
+**MyBatis的核心配置
 
  - 7.1 MyBatis的核心对象：
         在使用MyBatis框架时，主要涉及两个核心对象：SqlSessionFactory和SqlSession,它们在MyBatis框架中起着至关重要的作用。
