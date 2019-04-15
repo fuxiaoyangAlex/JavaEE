@@ -1,5 +1,5 @@
 # JavaEE
-🏆🏆
+🏆🏆 <BR>
 **MyBatis的核心配置**
 
  - 7.1 MyBatis的核心对象：
