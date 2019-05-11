@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.niit.dao.AnimalDao">
+    <!--添加动物-->
+    <insert id="insertAnimal" parameterType="com.niit.domain.Animal">
+        insert into t_animal(type,name) VALUES(#{type },#{name })
+    </insert>
+    <!--删除动物-->
+    <delete id="deleteAnimal" parameterType="java.lang.Integer">
+        delete from t_animal where id=#{id}
+    </delete>
+    <!--修改动物信息-->
+    <update id="updateAnimal" parameterType="com.niit.domain.Animal">
+        update t_animal set type=#{type },name=#{name } where id=#{id }
+    </update>
+    <!--根据id获取动物信息-->
+    <select id="getAnimalById" parameterType="java.lang.Integer" resultType="com.niit.domain.Animal">
+        select *from t_animal where id=#{id}
+    </select>
+
+    <!--通过resultMap表示结果映射集-->
+    <resultMap type="com.niit.domain.Animal" id="resultMap2">
+        <id property="id" column="id" />
+        <result property="type" column="type" />
+        <result property="name" column="name" />
+    </resultMap>
+
+    <select id="getAllAnimal" resultMap="resultMap2">
+        select * from t_animal
+    </select>
+
+    <select id="getAnimalByName" resultMap="resultMap2">
+        SELECT * FROM t_animal WHERE type LIKE CONCAT('%',#{type },'%')
+    </select>
+</mapper>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org/DTD Mapper 3.0"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--myBatis-config.xml的映射文件 -->
+<mapper namespace="com.niit.dao.CustomerDao">
+    <!--插入操作-->
+    <insert id="insertCustomer" parameterType="com.niit.domain.Customer">
+           insert t_customer(username,jobs,phone)values(#{username},#{jobs},#{phone})
+    </insert>
+
+    <!--删除操作-->
+    <delete id="deleteCustomer" parameterType="java.lang.Integer">
+        delete from t_customer where id=#{id}
+    </delete>
+
+    <!--修改操纵-->
+    <update id="updateCustomer" parameterType="com.niit.domain.Customer">
+       update t_customer set username=#{username},jobs=#{jobs},phone=#{phone} where id=#{id}
+    </update>
+
+
+    <!--根据ID进行查询-->
+    <select id="getCustomer" parameterType="Integer" resultType="com.niit.domain.Customer">
+        select * from t_customer where id=#{id}
+    </select>
+
+    <!--resultMap的使用-->
+    <resultMap id="customerResultMap" type="com.niit.domain.Customer">
+        <!--对应数据库表中的关键字，有它可以提高myBatis的性能-->
+        <id property="id" column="id" />
+        <!--;结果映射-->
+        <result property="username" column="username" />
+        <result property="jobs" column="jobs" />
+    </resultMap>
+
+    <!--使用resultMap作为结果记录集实现-->
+    <select id="getAllCustomer" resultMap="customerResultMap">
+        SELECT * FROM t_customer;
+    </select>
+
+    <!--查询所有信息-->
+   <!--<select id="getAllCustomer" resultType="com.niit.domain.Customer">-->
+        <!--SELECT * FROM t_customer;-->
+    <!--</select>-->
+
+    <!--根据关键字进行查询-->
+    <select id ="getCustomerByNameLike"
+            parameterType="String"
+            resultType="com.niit.domain.Customer">
+    select * FROM t_customer WHERE username LIKE concat('%',#{keyword},'%');
+</select>
+
+    <!-- 动态SQL操作 -->
+    <select id="findCustomerByNameAndJobs"
+            parameterType="com.niit.domain.Customer"
+            resultMap="customerResultMap">
+        SELECT * FROM t_customer where 1=1
+        <if test="username !=null and username !=''">
+            and  username like concat('%',#{username},'%')
+        </if>
+        <if test="jobs !=null and jobs !=''">
+            and jobs=#{jobs}
+        </if>
+    </select>
+
+    <select id="findCustomerByNameOrJobs"
+    parameterType="com.niit.domain.Customer"
+           resultMap="customerResultMap ">
+select * from t_customer
+              <where>
+        <choose>
+            <when test="username !=null  " >
+                and username like concat('%',#{username},'%')
+            </when>
+            <when test="jobs !=null and jobs !='' ">
+                and jobs =#{jobs}
+            </when>
+            <otherwise>
+                and phone is not null
+            </otherwise>
+        </choose>
+              </where>
+    </select>
+
+</mapper>
