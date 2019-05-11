@@ -1,5 +1,5 @@
 没有与Spring整合
-
+---
 MyBatis文件配置信息：
 <?xml version="1.0" encoding="UTF-8" ?>
     <!DOCTYPE configuration
@@ -11,6 +11,7 @@ MyBatis文件配置信息：
             <!DOCTYPE mapper
               PUBLIC "-//mybatis.org/DTD Mapper 3.0"
              "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+             
 
              <mapper>元素
              在配置文件中，<mappers>元素用于指定MyBatis映射文件位置,一般可以使用一下几种方式：
