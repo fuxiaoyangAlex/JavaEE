@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--加载配置文件-->
+    <properties resource="jdbc.properties"/>
+    <!--别名设置-->
+    <typeAliases>
+        <package name="com.niit.domain"/>
+    </typeAliases>
+
+    <!--配置环境-配置数据源 -->
+    <environments default="development">
+        <!--  -->
+        <environment id="development">
+            <!--使用JDBC的事务管理-->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--配置Mapper的信息-->
+    <!-- 一个配置文件对应数据库的一张表  -->
+    <mappers>
+        <mapper resource="com/niit/mapper/CustomerMapper.xml"/>
+        <mapper resource="com/niit/mapper/AnimalMapper.xml"/>
+        <mapper resource="com/niit/mapper/IdCardMapper.xml"/>
+        <mapper resource="com/niit/mapper/PersonMapper.xml"/>
+        <mapper resource="com/niit/mapper/UserMapper.xml"/>
+        <mapper resource="com/niit/mapper/OrderMapper.xml"/>
+    </mappers>
+</configuration>
