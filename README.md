@@ -5,7 +5,7 @@
   ---
  <img src=https://github.com/fuxiaoyangAlex/JavaEE/blob/master/picture/java.jpg width="360" height="280">
  
- # JAVEE学习顺序结构：
+ # JAVEE学习路线结构：
 
  1. 第一章:  ***Spring的基本应用***
  - 1.1 Spring概述
