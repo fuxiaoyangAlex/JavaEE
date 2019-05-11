@@ -2,6 +2,10 @@
 # JAVAEE
 
   - 第一个文件夹啊chapter_02里面主要是SpringAOP的一些实现
+  ---
+  - 第一章Spring的基本应用
+  - 第二张Spring中的Bean
+  - 
   - 深入浅出的SpringAOP
   - 核心配置MyBatis
  
