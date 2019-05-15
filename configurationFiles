@@ -1,10 +1,22 @@
-**Spring xml**
-
-**MyBatis xml**
-
-**MyBatis mapper xml**
-
-**Spring mvc xml**
+**Spring xml** :
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-**web.xml**
+**MyBatis xml**:
+
+
+**MyBatis mapper xml** :
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+**Spring mvc xml** :
+
+
+**web.xml**  :
