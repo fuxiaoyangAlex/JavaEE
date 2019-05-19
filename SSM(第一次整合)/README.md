@@ -6,6 +6,5 @@
 ---
 **参考书上的例子，运行时会出现500的错误（无效绑定）：**
 HTTP Status 500 - Request processing failed; nested exception is org.apache.ibatis.binding.BindingException: Invalid bound statement (not found)
-
 *解决办法*
 <img src=https://github.com/fuxiaoyangAlex/JavaEE/blob/master/picture/500.png width=600 height=250>
