@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:property-placeholder location="classpath:jdbc.properties" />
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <!--设置初始化大小-->
+        <property name="initialSize" value="20" />
+        <!--设置连接池最多连接数量-->
+        <property name="maxActive" value="20" />
+        <!--设置连接池最小空间-->
+        <property name="minIdle" value="0" />
+        <!--设置最大等待时间-->
+        <property name="maxWait" value="600000" />
+        <!--设置连接池最小生存空间-->
+        <property name="minEvictableIdleTimeMillis" value="600000" />
+        <!--打开缓存-->
+        <property name="poolPreparedStatements" value="true" />
+        <!--设置缓存大小-->
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+    </bean>
+
+    <!-- 事务管理器，依赖于数据源 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--开始事务注解-->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <!--配置MaBatis的-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
+        <!--注入数据源-->
+        <property name="dataSource" ref="dataSource" />
+        <!--指定MaBatis核心配置文件位置-->
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <property name="mapperLocations" value="classpath:com/ithima/dao/*.xml" />
+    </bean>
+    <!--配置mapper扫描器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="com.ithima.dao" />
+</bean>
+    <!--扫描含有注解的包-->
+    <context:component-scan base-package="com.ithima.service" />
+</beans>
