@@ -73,4 +73,4 @@
  - 13.2 简单数据绑定
  - 13.3 复杂数据绑定
  
-  <img src=https://github.com/fuxiaoyangAlex/JavaEE/blob/master/picture/spring.png width="360" height="280">
+  <img src=https://github.com/fuxiaoyangAlex/JavaEE/blob/master/picture/spring.png width="320" height="420">
