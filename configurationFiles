@@ -45,21 +45,24 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
         <!--注入数据源-->
         <property name="dataSource" ref="dataSource" />
-        <!--指定MaBatis核心配置文件位置-->
-        <property name="configLocation" value="classpath:mybatis-config.xml" />
-        <property name="mapperLocations" value="classpath:com/niit/dao/*.xml" />
+        <!--设置映射文件的路径-->
+        <property name="mapperLocations" value="classpath*:com/ithima/dao/*.xml" />
+        <!-- 设置别名的包 -->
+        <property name="typeAliasesPackage" value="com.ithima.po" />
     </bean>
 
-    <!--配置mapper扫描器-->
+
+    <!--mybatis自动扫描加载Sql映射文件/接口 : MapperScannerConfigurer sqlSessionFactory  -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.niit.dao" />
+        <property name="basePackage" value="com.ithima.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
-
     <!--扫描含有注解的包-->
-    <context:component-scan base-package="com.niit.service" />
-
+    <context:component-scan base-package="com.ithima.service" />
 </beans>
+
 --------------------------------------------------
+
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -70,6 +73,7 @@
         <package name="com.niit.entity"></package>
     </typeAliases>
 </configuration>
+
 --------------------------------------------------------------
 
 **MyBatis mapper xml** :
@@ -80,6 +84,7 @@
 <mapper namespace="">
     
 </mapper>
+
 -------------------------------------------------------------
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -106,6 +111,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 </beans>
+
 ------------------------------------------------------------------------
 
 <?xml version="1.0" encoding="UTF-8"?>
