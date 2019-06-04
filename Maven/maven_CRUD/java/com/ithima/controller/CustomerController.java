@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -23,41 +24,53 @@ public class CustomerController {
     private CustomerService customerService;
 
     @RequestMapping("/insertCustomer")
-    public String insertCustomer(Customer customer,Model model)throws Exception{
-            customer.setUsername("alex");
-            customer.setJobs("art");
-            customer.setPhone("8615130");
-            int i = customerService.insertCustomer(customer);
-            model.addAttribute("add",i);
-            return "cudCustomer";
+    @ResponseBody
+    public String customerCreate(Customer customer)throws Exception{
+        int i = customerService.insertCustomer(customer);
+        if (i>0){
+            return "OK";
+        }else {
+            return "FAIL";
+        }
     }
 
-    @RequestMapping("/deleteCustomer")
-    public String deleteCustomer(Integer id,Model model)throws Exception{
-        int i = customerService.deleteCustomer(id);
-        model.addAttribute("add",i);
-        return "cudCustomer";
+    /**
+     *
+     * @param id
+     * @param model
+     * @return
+     * @throws 删除客户
+     */
+    @RequestMapping("/delete.action")
+    @ResponseBody
+    public String deleteCustomer(Integer id)throws Exception{
+        int rows = customerService.deleteCustomer(id);
+        if(rows>0){
+            return "OK";
+        }else{
+            return "FAIL";
+        }
     }
 
     @RequestMapping("/updateCustomer")
-    public String updateCustomer(Customer customer,Model model)throws Exception{
-        customer.setUsername("change");
-        customer.setJobs("physical");
-        customer.setPhone("188519991");
+    @ResponseBody
+    public String updateCustomer(Customer customer)throws Exception{
         int i = customerService.updateCustomer(customer);
-        model.addAttribute("add",i);
-        return "cudCustomer";
+        if(i>0){
+            return "OK";
+        }else
+            return "FAIL";
     }
 
     @RequestMapping("/findCustomerById")
-    public String findCustomerById(Integer id,Model model){
+    @ResponseBody
+    public Customer findCustomerById(Integer id){
         Customer customer = customerService.findCustomerById(id);
-        model.addAttribute("customer",customer);
-        return "customer";
+        return  customer;
     }
 
     @RequestMapping("/findAllCustomer")
-    public String findAllCustomer(Model model){
+    public String findAllCustomer(Integer id,Model model){
         List<Customer> customerList =customerService.findAllCustomer();
         model.addAttribute("customerList",customerList);
         return "customerAll";
