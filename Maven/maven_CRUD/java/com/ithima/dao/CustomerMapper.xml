@@ -5,7 +5,7 @@
 <mapper namespace="com.ithima.dao.CustomerDao">
 
     <insert id="insertCustomer" parameterType="com.ithima.po.Customer">
-        insert into t_customer(username,jobs,phone)values(#{username},#{jobs},#{phone})
+      insert  into t_customer(username,jobs,phone)VALUES(#{username},#{jobs},#{phone})
     </insert>
 
     <delete id="deleteCustomer" parameterType="java.lang.Integer">
@@ -15,7 +15,6 @@
     <update id="updateCustomer" parameterType="com.ithima.po.Customer">
         update t_customer set username=#{username},jobs=#{jobs},phone=#{phone} where id=#{id}
     </update>
-
 
     <select id="findCustomerById" parameterType="Integer"
             resultType="com.ithima.po.Customer">
