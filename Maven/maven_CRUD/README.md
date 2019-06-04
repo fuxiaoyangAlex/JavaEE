@@ -1,2 +1,2 @@
 
-<scr="https://github.com/fuxiaoyangAlex/JavaEE/blob/master/picture/MAVEN_CRUD/AllCustomer.png" width=380 height=400>
+<img scr="https://github.com/fuxiaoyangAlex/JavaEE/blob/master/picture/MAVEN_CRUD/AllCustomer.png" width=380 height=400>
