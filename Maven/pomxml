@@ -15,7 +15,7 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-  <properties>
+ <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -236,9 +236,6 @@
       <scope>provided</scope>
     </dependency>
 
-
-
-
     <!--Spring-test依赖-->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -247,17 +244,12 @@
     </dependency>
 
 
-
-
-
     <!--通用mapper依赖-->
     <dependency>
       <groupId>tk.mybatis</groupId>
       <artifactId>mapper</artifactId>
       <version>${tk-mybatis.version}</version>
     </dependency>
-
-
 
     <!--lombok依赖-->
     <dependency>
@@ -380,4 +372,5 @@
     </resources>
   </build>
 </project>
+
 
