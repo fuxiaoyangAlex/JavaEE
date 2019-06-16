@@ -1,0 +1,309 @@
+# body配置文件
+
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <spring.version>4.1.3.RELEASE</spring.version>
+    <aopalliance.version>1.0</aopalliance.version>
+    <aspectjweaver-version>1.9.3</aspectjweaver-version>
+    <pagehelper.version>5.1.2-beta</pagehelper.version>
+    <mysql.version>5.1.6</mysql.version>
+    <mybatis.spring.version>1.2.3</mybatis.spring.version>
+    <mybatis.version>3.1.1</mybatis.version>
+    <javassist.version>3.25.0-GA</javassist.version>
+    <ow2.asm-version>7.0</ow2.asm-version>
+    <ognl-version>3.1</ognl-version>
+    <org.slf4j-version>1.7.25</org.slf4j-version>
+    <junit.version>4.12</junit.version>
+    <jstl.version>1.2</jstl.version>
+    <jsqlparser.version>1.0</jsqlparser.version>
+    <jackson.version>1.2.7</jackson.version>
+    <fasterxml.jackson-version>1.2.7</fasterxml.jackson-version>
+    <servlet-api.version>3.1.0</servlet-api.version>
+    <druid.version>1.0.18</druid.version>
+    <log4j.version>1.2.16</log4j.version>
+    <apache.logging-version>2.11.1</apache.logging-version>
+    <commons-logging.version>1.2</commons-logging.version>
+    <commons-fileupload.version>1.2.1</commons-fileupload.version>
+    <commons-io.version>1.3.2</commons-io.version>
+    <commons-lang.version>2.6</commons-lang.version>
+    <mybatis-generator.version>1.3.5</mybatis-generator.version>
+    <lombok-version>1.16.18</lombok-version>
+    <c3p0-version>0.9.1.2</c3p0-version>
+    <cglib-version>3.2.5</cglib-version>
+    <apache.ant-version>1.10.2</apache.ant-version>
+    <apache.taglibs-version>1.2.5</apache.taglibs-version>
+  </properties>
+
+  <dependencies>
+    <!-- Junit测试依赖 -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- MyBatis框架相关依赖 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>ant</artifactId>
+      <version>${apache.ant-version}</version>
+    </dependency>
+
+    <!-- Javassist（JAVA编程ASSISTant）使Java字节码操作变得简单。它是一个用于在Java中编辑字节码的类库 -->
+    <dependency>
+      <groupId>org.javassist</groupId>
+      <artifactId>javassist</artifactId>
+      <version>${javassist.version}</version>
+    </dependency>
+
+
+    <!-- 它为没有实现接口的类提供代理,为JDK的动态代理提供了很好的补充 -->
+    <dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib</artifactId>
+      <version>3.2.5</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>ant-launcher</artifactId>
+      <version>${apache.ant-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm</artifactId>
+      <version>${ow2.asm-version}</version>
+    </dependency>
+
+    <!-- Object-Graph Navigation Language的缩写，它是一种功能强大的表达式语言 -->
+    <dependency>
+      <groupId>ognl</groupId>
+      <artifactId>ognl</artifactId>
+      <version>${ognl-version}</version>
+    </dependency>
+
+    <!-- MyBatis和Spring整合依赖 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>${mybatis.spring.version}</version>
+    </dependency>
+    <!-- MySql驱动依赖-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.version}</version>
+    </dependency>
+    <!-- Alibaba的德古拉数据库连接池 -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>${druid.version}</version>
+    </dependency>
+    <!-- Spring相关依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!-- Spring表达式语言相关依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- Spring MVC框架相关依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!-- Spring AOP相关依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- aspectjweaverjar包主要是提供了一个java agent用于在 类加载期 -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>${aspectjweaver-version}</version>
+    </dependency>
+    <!-- 包含了针对面向切面的接口。 通常Spring等其它具备动态织入功能的框架依赖此包。 -->
+    <dependency>
+      <groupId>aopalliance</groupId>
+      <artifactId>aopalliance</artifactId>
+      <version>${aopalliance.version}</version>
+    </dependency>
+    <!-- JSP相关 -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstl.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${servlet-api.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- MyBatis的分页插件 -->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>${pagehelper.version}</version>
+    </dependency>
+    <!--jsqlparser-->
+    <dependency>
+      <groupId>com.github.jsqlparser</groupId>
+      <artifactId>jsqlparser</artifactId>
+      <version>${jsqlparser.version}</version>
+    </dependency>
+    <!-- log4j的依赖-->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${apache.logging-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${apache.logging-version}</version>
+    </dependency>
+
+    <!-- 简单日志门面(Simple Logging Facade for Java),不是具体的日志解决方案,它只服务于各种各样的日志系统 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${org.slf4j-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${org.slf4j-version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Jackson是一个简单基于Java应用库，Jackson可以轻松的将Java对象转换成json对象和xml文档，
+    同样也可以将json、xml转换成Java对象。Jackson所依赖的jar包较少，简单易用并且性能也要相对高些，
+    并且Jackson社区相对比较活跃，更新速度也比较快。-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.9.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.9.8</version>
+    </dependency>
+
+    <!-- JSTL标签库相关依赖  -->
+    <dependency>
+      <groupId>org.apache.taglibs</groupId>
+      <artifactId>taglibs-standard-impl</artifactId>
+      <version>${apache.taglibs-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.taglibs</groupId>
+      <artifactId>taglibs-standard-spec</artifactId>
+      <version>${apache.taglibs-version}</version>
+    </dependency>
+
+
+    <!-- apache最早提供的日志的门面接口 -->
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>${commons-logging.version}</version>
+    </dependency>
+    <!-- 文件上传组件 -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>${commons-fileupload.version}</version>
+    </dependency>
+    <!-- 一款处理io流的工具,封装了很多处理io流和文件的方法 -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
+    </dependency>
+    <!-- 跟java.lang这个包的作用类似,Commons Lang这一组API也是提供一些基础的、通用的操作和处理 -->
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>${commons-lang.version}</version>
+    </dependency>
+    <!-- lombok依赖 -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok-version}</version>
+    </dependency>
+
+    <!--c3p0 连接池 -->
+    <dependency>
+      <groupId>c3p0</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>${c3p0-version}</version>
+    </dependency>
+
+  </dependencies>
