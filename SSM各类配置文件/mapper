@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org/DTD Mapper 3.0"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace后面给dao接口 -->
 <mapper namespace="">
     
 </mapper>
